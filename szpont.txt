@@ -1,0 +1,9 @@
+zwykla stronka z podstawowymi przepisami
+po zalogowaniu:
+możliwość wybrania z listy rozwijanej całej oferty przepisów
+dodanwanie prze uzytkownikow swoich przepisów do zakładki dania-uzytkownikow
+możliwość dodanie sobie dania do ulubionych
+W przepisie:
+zdjecie
+opis
+po klikniecu w składniki lista czego trzeba uzyc + ile to ma kalorii na końcu lącza suma
