@@ -1,3 +1,4 @@
+body{
 .lista_r{
     display: none;
 }
@@ -20,6 +21,11 @@
 #menu{
     display: none;
     list-style: none;
+    flex-direction: row;
+    list-style:none;
+    position:fixed;
+    padding: 5px;
+    margin: 5px;
 }
 .rp{
     display: flex;
@@ -27,8 +33,20 @@
 }
 .lp{
  
+    display:flex;
+    margin-left: auto;
+    text-align: right;
+    gap: 20px;
 
 }
+.rp a{
+    text-decoration: none;
+    color: black;
+}
+.rp a:hover{
+    color: blue;
+}
+
 h2{
     margin: 0;
 }
