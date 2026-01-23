@@ -1,0 +1,5 @@
+komendy do mysql bo mi sie niechce ich znowu pisac
+
+SELECT s.nazwa,ds.ilosc,ds.jednostka FROM dania_skladnik as ds JOIN dania as d on ds.id_danie = d.ID_danie 
+JOIN skladniki as s ON ds.id_skladnik = s.ID_skladnik where d.nazwa='Schabowy z ziemniakami';
+
