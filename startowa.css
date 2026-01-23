@@ -1,0 +1,41 @@
+.lista_r{
+    display: none;
+}
+.paski{
+    display: flex;
+    width: 30px;
+    height: 20px;
+    padding: 10px;
+    cursor: pointer;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.linia{
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: black;
+    border-radius: 10px;
+}
+#menu{
+    display: none;
+    list-style: none;
+}
+.rp{
+    display: flex;
+    justify-content: right;
+}
+.lp{
+ 
+
+}
+h2{
+    margin: 0;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}

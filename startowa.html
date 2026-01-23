@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przepisy</title>
+    <link rel="stylesheet" href="startowa.css">
+</head>
+<body>
+    <header>
+        <div class="menu_roz">
+            <input type="button" id="lista" class="lista_r">
+            <label for="lista" class="paski">
+                <span class="linia"></span>
+                <span class="linia"></span>
+                <span class="linia"></span>
+            </label>
+            
+                <ul id="menu" >
+                    <li><a href="odblokowana_nasz_p">Nasze przepisy</a></li>
+                </ul>
+          
+        </div>
+        <div class="rp">
+            <h2><a href="strona_rejstrowanie">Zarejestruj się!</a></h2>
+        </div>
+        <div class="lp">
+            <h2><a href="strona_logowanie">Zaloguj się!</a></h2>
+        </div>
+    </header>
+     
+</body>
+</html>
+<script>
+    const przycisk = document.getElementById('lista');
+    const lista = document.getElementById('menu')
+    przycisk.onclick=function(){
+        if(lista.style.display==="block"){
+            lista.style.display="none";
+        }
+        else{
+            lista.style.display="block";
+        }
+    }
+
+</script>
