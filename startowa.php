@@ -20,8 +20,8 @@ session_start();
             </label>
             
                 <ul id="menu" >
-                    <li><a href="odblokowana_nasz_p">Nasze przepisy</a></li>
-                    <li><a href="odblokowana_przep_u">Przepisy naszych użytkowników</a></li>
+                    <li><a href="nasze_przepisy.php">Nasze przepisy</a></li>
+                    <li><a href="przepisy_uzytk.php">Przepisy naszych użytkowników</a></li>
                 </ul>
           
         </div>
