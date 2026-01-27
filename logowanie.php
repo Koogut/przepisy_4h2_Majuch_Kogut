@@ -44,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -53,20 +54,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 <body>
 <!-- Wyświetlenie komunikatu o błędzie -->
-<?php
-if (isset($error)) {
-    echo "<p style='color:red'>" . htmlspecialchars($error) . "</p>";
-}
-?>
-
-
-<h2>Logowanie</h2>
-
-
 
 
 <div class="menu">
-
+<h2>Logowanie:</h2>
 <form name="logowanie"method="post" action="">
     <label>Nazwa użytkownika:</label><br>
     <input type="text" name="login" required><br><br>
@@ -78,6 +69,18 @@ if (isset($error)) {
 </form>
 <br>
 <a href="rejestracja.php">Nie masz konta? Zarejestruj się !</a>
+
 </div>
+<div class="blad">
+
+</div>
+<?php if (!empty($error)): ?>
+        <script>
+            // Window.onload sprawia, że alert wyskoczy dopiero gdy strona się załaduje
+            window.onload = function() {
+                alert("<?php echo addslashes($error); ?>");
+            };
+        </script>
+    <?php endif; ?>
 </body>
 </html>

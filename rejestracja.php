@@ -53,19 +53,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Rejestracja</title>
+    <link rel="stylesheet" href="rejstracja.css">
 </head>
 <body>
 
-<h2>Rejestracja</h2>
-<a href="logowanie.php">Masz konto? Zaloguj się !</a>
-<br>
+
+
+
 <!-- Wyświetlenie błędu -->
 <?php
 if (!empty($error)) {
     echo "<p style='color:red'>" . htmlspecialchars($error) . "</p>";
 }
 ?>
-
+<div class="menu">
+<h2>Rejestracja:</h2>
 <form method="post" action="">
     <label>Login:</label><br>
     <input type="text" name="login" required value="<?php echo isset($login) ? htmlspecialchars($login) : ''; ?>"><br><br>
@@ -78,6 +80,7 @@ if (!empty($error)) {
 
     <button type="submit">Zarejestruj</button>
 </form>
-
+<a href="logowanie.php">Masz konto? Zaloguj się !</a>
+</div>
 </body>
 </html>

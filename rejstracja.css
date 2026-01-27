@@ -10,7 +10,6 @@ background: radial-gradient(circle,rgba(163, 251, 63, 1) 0%, rgba(200, 176, 81, 
 
 }
 .menu{
-    
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -63,4 +62,3 @@ button{
 .menu a:hover{
     color: blue;
 }
-
