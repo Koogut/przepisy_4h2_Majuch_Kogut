@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $_SESSION["login"]   = $user["login"];
 
                 // Przekierowanie do panelu
-                header("Location: startowa.html"); //TU CIE PRZEKIEROWYWUJE DO TEJ GLOWNEJ STRONY
+                header("Location: startowa.php"); //TU CIE PRZEKIEROWYWUJE DO TEJ GLOWNEJ STRONY
                 exit;
             }
         }
@@ -49,13 +49,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Logowanie</title>
+    <link rel="stylesheet" href="logowanie.css">
 </head>
 <body>
-
-<h2>Logowanie</h2>
-<a href="rejestracja.php">Nie masz konta? Zarejestruj się !</a>
-
-
 <!-- Wyświetlenie komunikatu o błędzie -->
 <?php
 if (isset($error)) {
@@ -63,7 +59,15 @@ if (isset($error)) {
 }
 ?>
 
-<form method="post" action="">
+
+<h2>Logowanie</h2>
+
+
+
+
+<div class="menu">
+
+<form name="logowanie"method="post" action="">
     <label>Nazwa użytkownika:</label><br>
     <input type="text" name="login" required><br><br>
 
@@ -72,6 +76,8 @@ if (isset($error)) {
 
     <button type="submit">Zaloguj</button>
 </form>
-
+<br>
+<a href="rejestracja.php">Nie masz konta? Zarejestruj się !</a>
+</div>
 </body>
 </html>

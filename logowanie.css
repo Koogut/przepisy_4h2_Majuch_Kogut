@@ -1,0 +1,28 @@
+body{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    height: 3vh;
+    width: 3vh;
+}
+.menu{
+    display:table-column;
+    margin: 0 auto;
+    padding: 15px;
+}
+h2{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+}
+#logowanie{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    margin: 0 auto;
+    
+}
