@@ -18,26 +18,25 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         );
         $stmt->bind_param("s", $login);
         $stmt->execute();
-        $result = $stmt->get_result();
+$stmt->store_result();
 
-        if ($result->num_rows === 0) {
-            $error = "Nieprawidłowy login lub hasło";
-        } else {
-            $user = $result->fetch_assoc();
+if ($stmt->num_rows === 0) {
+    $error = "Nieprawidłowy login lub hasło";
+} else {
+    $stmt->bind_result($id, $login_db, $haslo_db);
+    $stmt->fetch();
 
-            // Sprawdzenie hasła
-            if (!password_verify($haslo, $user["haslo"])) {
-                $error = "Nieprawidłowy login lub hasło";
-            } else {
-                // Logowanie OK 
-                $_SESSION["user_id"] = $user["ID_uzytkownik"];
-                $_SESSION["login"]   = $user["login"];
+    if (!password_verify($haslo, $haslo_db)) {
+        $error = "Nieprawidłowy login lub hasło";
+    } else {
+        $_SESSION["user_id"] = $id;
+        $_SESSION["login"]   = $login_db;
 
-                // Przekierowanie do panelu
-                header("Location: startowa.php"); //TU CIE PRZEKIEROWYWUJE DO TEJ GLOWNEJ STRONY
-                exit;
-            }
-        }
+        header("Location: startowa.php");
+        exit;
+    }
+}
+
 
         $stmt->close();
     }
