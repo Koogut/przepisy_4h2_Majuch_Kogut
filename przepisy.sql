@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sty 23, 2026 at 11:52 AM
+-- Generation Time: Sty 28, 2026 at 07:51 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -39,7 +39,8 @@ CREATE TABLE `dania` (
 
 INSERT INTO `dania` (`ID_danie`, `nazwa`, `opis`) VALUES
 (1, 'Schabowy z ziemniakami', 'Tradycyjny polski obiad: kotlet schabowy, ziemniaki i mizeria.'),
-(2, 'Spaghetti Carbonara', 'Włoski klasyk z jajkiem, boczkiem (pancetta) i serem.');
+(2, 'Spaghetti Carbonara', 'Włoski klasyk z jajkiem, boczkiem (pancetta) i serem.'),
+(3, 'Burger', 'Dobry burger z wołowinką');
 
 -- --------------------------------------------------------
 
@@ -123,7 +124,7 @@ CREATE TABLE `uzytkownicy` (
   `ID_uzytkownik` int(11) NOT NULL,
   `login` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `haslo` varchar(20) NOT NULL
+  `haslo` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
@@ -131,7 +132,12 @@ CREATE TABLE `uzytkownicy` (
 --
 
 INSERT INTO `uzytkownicy` (`ID_uzytkownik`, `login`, `email`, `haslo`) VALUES
-(1, 'admin', 'admin@example.com', 'c90d91066c01d92ed214');
+(1, 'admin', 'admin@example.com', 'c90d91066c01d92ed214'),
+(2, 'mesjekok', 'koko@gmail.com', '$2y$10$y8.SIciGZDzz8613Y9J.RON46rsmpKGzCJYqb4hzTedmi45eHptuW'),
+(3, 'admin2', 'admin@admin.com', '$2y$10$/sMEU2f7ZVKQMTX6R/hLJ.dgfEFBPPmmEVN3rezAjpGUqa6oFpw6S'),
+(4, 'majuch', 'sztywno@67.com', '$2y$10$rktn1WYTwoqiuA.MahVr4.VroBnWkKXArhATCb4TEws5pwKhqsuXC'),
+(5, 'admin3', 'admin3@gmail.com', '$2y$10$9h0L/EqMF9vQUW7nq95yiuLx10ajefE/r1fp0vQmetPj.EEGI3NSK'),
+(6, 'admin4', 'lol@lol', '$2y$10$95CB0jPhCiL3axWWybrAXuYi2tguGzncccH/EX71vEqT9ZBtf1sCy');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -181,7 +187,7 @@ ALTER TABLE `uzytkownicy`
 -- AUTO_INCREMENT for table `dania`
 --
 ALTER TABLE `dania`
-  MODIFY `ID_danie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID_danie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `dania_skladnik`
@@ -205,7 +211,7 @@ ALTER TABLE `ulubione_danie`
 -- AUTO_INCREMENT for table `uzytkownicy`
 --
 ALTER TABLE `uzytkownicy`
-  MODIFY `ID_uzytkownik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_uzytkownik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
