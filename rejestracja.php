@@ -54,6 +54,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <title>Rejestracja</title>
     <link rel="stylesheet" href="rejstracja.css">
+    <?php if (!empty($error)): ?>
+        <script>
+            // Window.onload sprawia, że alert wyskoczy dopiero gdy strona się załaduje
+            window.onload = function() {
+                alert("<?php echo addslashes($error); ?>");
+            };
+        </script>
+    <?php endif; ?>
 </head>
 <body>
 
@@ -61,11 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
 <!-- Wyświetlenie błędu -->
-<?php
-if (!empty($error)) {
-    echo "<p style='color:red'>" . htmlspecialchars($error) . "</p>";
-}
-?>
+
 <div class="menu">
 <h2>Rejestracja:</h2>
 <form method="post" action="">
@@ -82,5 +86,6 @@ if (!empty($error)) {
 </form>
 <a href="logowanie.php">Masz konto? Zaloguj się !</a>
 </div>
+
 </body>
 </html>

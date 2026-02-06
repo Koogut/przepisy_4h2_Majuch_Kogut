@@ -31,29 +31,44 @@ header{
 }
 .lista_r{
     display: none;
+   
 }
 #menu{
-    height: 10vh;
+    height: auto;
     width: auto;
     display: none;
     list-style: none;
     flex-direction: row;
     list-style:none;
     position:fixed;
-    padding: 8px;
-    margin: 8px;
-    background-color: rgba(34, 193, 195, 0.5);
+    padding-left: 0;
+    margin: 8px auto;
+    margin-left: 9px;
+    background: #2A7B9B;
+    background: linear-gradient(180deg,rgba(42, 123, 155, 1) 0%, rgba(87, 109, 199, 1) 50%, rgba(119, 83, 237, 1) 100%);
+
+    border: 2px solid black;
 }
+
 #menu a{
     font-size:2vh;
-    display: block;
+    display: flex;
     text-decoration: none;
     color: black;
     font-weight: bold;
-    border-top: 2px solid transparent;
-	border-bottom: 2px solid transparent;
+    border-bottom: 4px solid black;
+   border-bottom-width: 100%;
+   text-align: center;
+   justify-content: center;
+   padding: 1vh;
+     
 }
-
+#menu li:last-child{
+    border-bottom: none;
+}
+#menu li:last-child a{
+    border-bottom: none;
+}
 .rp{
     display: flex;
     justify-content: right;

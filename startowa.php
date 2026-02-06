@@ -18,10 +18,11 @@ session_start();
                 <span class="linia"></span>
                 <span class="linia"></span>
             </label>
-            
+                
                 <ul id="menu" >
                     <li><a href="nasze_przepisy.php">Nasze przepisy</a></li>
                     <li><a href="przepisy_uzytk.php">Przepisy naszych użytkowników</a></li>
+                    <li><a href="ulubione.php">Twoje ulubione przepisy</a></li>
                 </ul>
           
         </div>
