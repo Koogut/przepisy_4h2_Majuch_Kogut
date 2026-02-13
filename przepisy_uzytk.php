@@ -20,7 +20,7 @@ if(!$danie){
     die("Przepis nie istnieje");
 }
 
-$stmt = $conn->("SELECT id_danie FROM dania ORDER BY id_danie DESC LIMIT 1")
+//$stmt = $conn->("SELECT id_danie FROM dania ORDER BY id_danie DESC LIMIT 1")
 
 ?>
 

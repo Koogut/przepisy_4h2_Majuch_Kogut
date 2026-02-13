@@ -10,6 +10,7 @@ session_start();
     <link rel="stylesheet" href="startowa.css">
 </head>
 <body>
+<div class="tło">
     <header>
         <div class="menu_roz">
             <input type="button" id="lista" class="lista_r">
@@ -41,13 +42,26 @@ session_start();
         </div>
     </header>
      <section> 
+        
         <h1>Polecane dania</h1>
+     
         <div class="img_nasze_d">
-            <img src="pomidorowa.jpg" alt="pomidorowa">
-            <img src="schabowy.jpg" alt="schabowy">
-            <img src="carbonara-horizontal-mediumSquareAt3X-v2.jpg" alt="carbonara">
+        <img src="pomidorowa.jpg" alt="pomidorowa" onclick="window.location.href='przepisy_uzytk.php?id=1'">
+        <img src="schabowy.jpg" alt="schabowy">
+        <img src="carbonara-horizontal-mediumSquareAt3X-v2.jpg" alt="carbonara">
         </div>
+        <h1>Najepsze dania użytkowników</h1>
+        <div class="img_nasze_d">
+            <img src="burger.jpg" alt="burger">
+            <img src="sajgonki.jpg" alt="sajgonki">
+            <img src="tiramisu.jpg" alt="tiramisu">
+        </div>
+
      </section>
+     <footer>
+        <h1>Stworzyli Miłosz Majuch i Wiktor Kogut</h1>
+     </footer>
+     </div>
 </body>
 </html>
 <script>
