@@ -46,7 +46,7 @@ session_start();
         <h1>Polecane dania</h1>
      
         <div class="img_nasze_d">
-        <img src="pomidorowa.jpg" alt="pomidorowa" onclick="window.location.href='przepisy_uzytk.php?id=1'">
+        <img src="pomidorowa.jpg" alt="pomidorowa" onclick="window.location.href='pomidorowa.php'">
         <img src="schabowy.jpg" alt="schabowy">
         <img src="carbonara-horizontal-mediumSquareAt3X-v2.jpg" alt="carbonara">
         </div>
@@ -58,10 +58,11 @@ session_start();
         </div>
 
      </section>
-     <footer>
+
+     </div>
+          <footer>
         <h1>Stworzyli Miłosz Majuch i Wiktor Kogut</h1>
      </footer>
-     </div>
 </body>
 </html>
 <script>
