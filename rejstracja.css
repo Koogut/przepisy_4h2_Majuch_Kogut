@@ -5,8 +5,8 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 50vh;
-   background: #a3fb3f;
-background: radial-gradient(circle,rgba(163, 251, 63, 1) 0%, rgba(200, 176, 81, 1) 56%, rgba(252, 70, 107, 1) 100%);
+    background: #59cdff;
+    background: radial-gradient(circle, rgba(89, 205, 255, 1) 0%, rgba(0, 47, 255, 1) 100%);
 
 }
 .menu{
