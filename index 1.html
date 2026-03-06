@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Globalny tilt</title>
+
+<style>
+html, body {
+  margin: 0;
+  height: 100%;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1200px;
+  overflow: hidden;
+}
+
+.container {
+  width: 450px;
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+}
+
+.container img {
+  width: 100%;
+  display: block;
+  border-radius: 20px;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="tilt">
+  <img src="lew.jpg" alt="Głowa">
+</div>
+
+<script>
+const tilt = document.getElementById("tilt");
+const maxTilt = 30;
+
+document.addEventListener("mousemove", (e) => {
+  const screenX = window.innerWidth / 2;
+  const screenY = window.innerHeight / 2;
+
+  // pozycja kursora względem środka ekranu (-1 do 1)
+  const percentX = (e.clientX - screenX) / screenX;
+  const percentY = (e.clientY - screenY) / screenY;
+
+  const rotateY = percentX * maxTilt;
+  const rotateX = -percentY * maxTilt;
+
+  tilt.style.transform = `
+    rotateX(${rotateX}deg)
+    rotateY(${rotateY}deg)
+  `;
+});
+
+// reset gdy kursor wyjedzie z okna
+document.addEventListener("mouseleave", () => {
+  tilt.style.transform = "rotateX(0deg) rotateY(0deg)";
+});
+</script>
+
+</body>
+</html>
