@@ -22,7 +22,7 @@ session_start();
                 
                 <ul id="menu" >
                     <li><a href="nasze_przepisy.php">Nasze przepisy</a></li>
-                    <li><a href="przepisy_uzytk.php">Przepisy naszych użytkowników</a></li>
+                    <li><a href="przepisy_uzytk.php?id=1">Przepisy naszych użytkowników</a></li>
                     <li><a href="ulubione.php">Twoje ulubione przepisy</a></li>
                 </ul>
           
