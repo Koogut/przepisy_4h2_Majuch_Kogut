@@ -69,9 +69,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </style>
 </head>
 <body>
-
+<header>
 <h2>Dodaj przepis</h2>
-
+</header>  
+<section>
 <?php
 if (isset($_GET["error"])) {
     echo "<p style='color:red'>" . htmlspecialchars($_GET["error"]) . "</p>";
@@ -115,7 +116,7 @@ if (isset($_GET["success"])) {
 </form>
 
 <a href="nasze_przepisy.php">← Powrót</a>
-
+</section>
 <script>
 function dodajSkladnik() {
     const div = document.createElement("div");

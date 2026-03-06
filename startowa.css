@@ -24,6 +24,7 @@ footer{
     background: #020024;
     background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(3, 2, 100, 1) 20%, rgba(66, 66, 179, 1) 55%, rgba(0, 123, 255, 1) 100%);
     color: white;
+    text-shadow: black 3px 3px;
 }
 footer *{
     margin: 0;
@@ -37,6 +38,7 @@ footer *{
     cursor: pointer;
     justify-content: space-between;
     flex-direction: column;
+    
 }
 .linia{
     display: block;
@@ -44,6 +46,7 @@ footer *{
     width: 100%;
     background-color:   white;
     border-radius: 10px;
+    text-shadow: black 3px 3px;
 }
 .lista_r{
     display: none;
@@ -77,6 +80,7 @@ footer *{
    text-align: center;
    justify-content: center;
    padding: 1vh;
+ 
      
 }
 #menu li:last-child{
@@ -94,12 +98,21 @@ footer *{
     font-size: 3vh;
     text-decoration: none;
     color: white;
+    text-shadow: black 3px 3px;
 }
 .rp h2{
     color: white;
+    text-shadow: black 3px 3px;
 }
 .rp a:hover{
     color: blue;
+    text-shadow: none;
+ 
+}
+.rp h2:hover{
+    color: blue;
+    text-shadow: none;
+ 
 }
 
 h2{
