@@ -14,14 +14,14 @@
         <div class="zdjecie">
             <img src="pomidorowa.jpg" alt="pomidorówka">
         </div>
-        <div class="Opis">
+        <div class="opis">
             <p>Tu bedzie opis</p>
         </div>
         <div class="tabwartosci">
             <table>
                 <tr>
                     <th>Nazwa produktu</th>
-                    <th>Ilosść</th>
+                    <th>Ilość</th>
                     <th>Kcal na 100 gram produktu</th>
                 </tr>
                 <tr>
