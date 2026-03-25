@@ -9,6 +9,7 @@
 <body>
     <header>
         <div class="gwiazda">
+            <img src="powrot.png" alt="strzalka" onclick="window.location.href='startowa.php'">
             <img id="gwiazdka"src="1dawid.jpg"  onclick="zmien()">
         </div>
         <h1>Pomidorowa z makaronem</h1>
