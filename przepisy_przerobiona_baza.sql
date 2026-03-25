@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2026 at 01:25 PM
--- Wersja serwera: 10.4.28-MariaDB
--- Wersja PHP: 8.2.4
+-- Generation Time: Mar 25, 2026 at 07:19 PM
+-- Wersja serwera: 10.4.32-MariaDB
+-- Wersja PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -84,6 +84,20 @@ CREATE TABLE `dania_skladnik_uzytkownikow` (
   `jednostka` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
+--
+-- Dumping data for table `dania_skladnik_uzytkownikow`
+--
+
+INSERT INTO `dania_skladnik_uzytkownikow` (`id_dania_skladnik_uzytk`, `id_danie_uzytk`, `id_skladnik`, `ilosc`, `jednostka`) VALUES
+(1, 4, 110, 4.00, 'szt'),
+(2, 6, 112, 4.00, 'szt'),
+(3, 6, 105, 300.00, 'g'),
+(4, 6, 113, 100.00, 'g'),
+(5, 6, 103, 4.00, 'szt'),
+(6, 7, 110, 1.00, 'szt'),
+(7, 7, 103, 2.00, 'szt'),
+(8, 7, 114, 400.00, 'ml');
+
 -- --------------------------------------------------------
 
 --
@@ -104,7 +118,11 @@ CREATE TABLE `dania_uzytkownikow` (
 INSERT INTO `dania_uzytkownikow` (`ID_danie_uzykownikow`, `nazwa`, `opis`, `zdjecie`) VALUES
 (1, 'Schabowy z ziemniakami', 'Tradycyjny polski obiad: kotlet schabowy, ziemniaki i mizeria.', ''),
 (2, 'Spaghetti Carbonara', 'Włoski klasyk z jajkiem, boczkiem (pancetta) i serem.', ''),
-(3, 'Burger', 'Dobry burger z wołowinką', '');
+(3, 'Burger', 'Dobry burger z wołowinką', ''),
+(4, 'Krokiety', 'Krokiety z serem', 'zdjecia/1774461925_przepis-na-krokiety-z-serem-i-szynka.jpg'),
+(5, 'Krokiety', 'Krokiety z serem', 'zdjecia/1774461925_przepis-na-krokiety-z-serem-i-szynka.jpg'),
+(6, 'Krokiety', 'Krokiety z serem', 'zdjecia/1774462049_przepis-na-krokiety-z-serem-i-szynka.jpg'),
+(7, 'Krokiety', 'Krokiet z serem', 'zdjecia/1774462096_przepis-na-krokiety-z-serem-i-szynka.jpg');
 
 -- --------------------------------------------------------
 
@@ -131,7 +149,12 @@ INSERT INTO `skladniki` (`ID_skladnik`, `nazwa`, `cena`) VALUES
 (106, 'Olej rzepakowy', 6.00),
 (107, 'Boczek wędzony', 32.00),
 (108, 'Makaron spaghetti', 5.00),
-(109, 'Ser Parmezan', 80.00);
+(109, 'Ser Parmezan', 80.00),
+(110, 'Naleśniki', 0.00),
+(111, 'Naleśniki', 0.00),
+(112, 'Naleśniki', 0.00),
+(113, 'Ser żólty', 0.00),
+(114, 'Mleko', 0.00);
 
 -- --------------------------------------------------------
 
@@ -249,16 +272,22 @@ ALTER TABLE `dania_skladnik_nasze`
   MODIFY `id_dania_skladnik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `dania_skladnik_uzytkownikow`
+--
+ALTER TABLE `dania_skladnik_uzytkownikow`
+  MODIFY `id_dania_skladnik_uzytk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `dania_uzytkownikow`
 --
 ALTER TABLE `dania_uzytkownikow`
-  MODIFY `ID_danie_uzykownikow` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID_danie_uzykownikow` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `skladniki`
 --
 ALTER TABLE `skladniki`
-  MODIFY `ID_skladnik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
+  MODIFY `ID_skladnik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
 
 --
 -- AUTO_INCREMENT for table `ulubione_danie`
