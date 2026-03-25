@@ -8,6 +8,9 @@
 </head>
 <body>
     <header>
+        <div class="gwiazda">
+            <img id="gwiazdka"src="1dawid.jpg"  onclick="zmien()">
+        </div>
         <h1>Pomidorowa z makaronem</h1>
     </header>
     <section>
@@ -44,3 +47,10 @@
     </section>
 </body>
 </html>
+<script>
+    function zmien(){
+        const zdjecie=document.getElementById('gwiazdka')
+            if(zdjecie.src.match("1dawid"))zdjecie.src="2dawid.png";
+            else zdjecie.src="1dawid.jpg";
+    }
+</script>

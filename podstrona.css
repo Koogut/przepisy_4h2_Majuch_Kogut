@@ -5,6 +5,7 @@ body{
     background: #6bd3ff;
 background: linear-gradient(90deg, rgba(107, 211, 255, 1) 0%, rgba(66, 138, 201, 1) 35%, rgba(21, 105, 122, 1) 100%);
 }
+
 section{
     align-items: center;
     justify-content: center;
@@ -16,6 +17,21 @@ header{
     text-align: center;
     color: aliceblue;
     text-shadow: black 3px 3px;
+    position: relative;
+}
+.gwiazda{
+    position:absolute;
+    left: 20px;
+   justify-content: flex-start;
+    display: flex;
+    width: 50px;
+    height: 50px;
+    cursor: pointer; 
+    transition: transform 0.2s; 
+ 
+}
+.gwiazda:active{
+    transform: scale(0.95);
 }
 img{
     border-radius: 15px;
