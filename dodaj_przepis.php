@@ -2,153 +2,156 @@
 require_once "auth.php";
 require_once "db.php";
 
+// pobranie składników
 $skladniki = $conn->query("SELECT * FROM skladniki");
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    $nazwa = trim($_POST['nazwa']);
+    $opis = trim($_POST['opis']);
+
+    // ===== ZDJĘCIE =====
+    $zdjecie = null;
+
+    if(isset($_FILES['zdjecie']) && $_FILES['zdjecie']['error'] == 0){
+
+        $dozwolone = ['image/jpeg','image/png'];
+
+        if(!in_array($_FILES['zdjecie']['type'],$dozwolone)){
+            die("Zły format pliku");
+        }
+
+        $plik = time()."_".basename($_FILES['zdjecie']['name']);
+        $sciezka = "zdjecia/".$plik;
+
+        move_uploaded_file($_FILES['zdjecie']['tmp_name'],$sciezka);
+
+        $zdjecie = $sciezka;
+    }
+
+    // ===== DODANIE PRZEPISU =====
+    $stmt = $conn->prepare("
+        INSERT INTO dania_uzytkownikow (nazwa,opis,zdjecie)
+        VALUES (?,?,?)
+    ");
+    $stmt->bind_param("sss",$nazwa,$opis,$zdjecie);
+    $stmt->execute();
+
+    $id_danie = $conn->insert_id;
+
+    // ===== SKŁADNIKI =====
+    $skladniki_id = $_POST['skladnik_id'];
+    $nowe = $_POST['nowy_skladnik'];
+    $ilosci = $_POST['ilosc'];
+    $jednostki = $_POST['jednostka'];
+
+    for($i=0;$i<count($ilosci);$i++){
+
+        $id_skladnik = $skladniki_id[$i];
+
+        // jeśli wpisano nowy składnik
+        if(empty($id_skladnik) && !empty($nowe[$i])){
+            $stmt = $conn->prepare("INSERT INTO skladniki (nazwa,cena) VALUES (?,0)");
+            $stmt->bind_param("s",$nowe[$i]);
+            $stmt->execute();
+
+            $id_skladnik = $conn->insert_id;
+        }
+
+        if(empty($id_skladnik)) continue;
+        if(empty($ilosci[$i]) || $ilosci[$i] <= 0) continue;
+
+        $stmt = $conn->prepare("
+            INSERT INTO dania_skladnik_uzytkownikow
+            (id_danie_uzytk,id_skladnik,ilosc,jednostka)
+            VALUES (?,?,?,?)
+        ");
+
+        $stmt->bind_param(
+            "iids",
+            $id_danie,
+            $id_skladnik,
+            $ilosci[$i],
+            $jednostki[$i]
+        );
+
+        $stmt->execute();
+    }
+
+    header("Location: dodaj_przepis.php?ok=1");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dodaj przepis</title>
+<meta charset="UTF-8">
+<title>Dodaj przepis</title>
 </head>
 <body>
-    <h2>Dodaj przepis</h2>
-<form method="post" enctype="multipart/form-data"> 
-<label>Nazwa dania: </label><br>
+
+<h2>Dodaj przepis</h2>
+
+<?php if(isset($_GET['ok'])) echo "<p>Dodano przepis</p>"; ?>
+
+<form method="post" enctype="multipart/form-data">
+
+Nazwa:<br>
 <input type="text" name="nazwa" required><br><br>
 
-<label>Opis: </label><br>
+Opis:<br>
 <textarea name="opis" required></textarea><br><br>
 
-<label>Zdjęcie: </label><br>
+Zdjęcie:<br>
 <input type="file" name="zdjecie" required><br><br>
 
 <h3>Składniki</h3>
 
-<div id="skladniki">
-<div class="skladniki">
+<div id="box">
+
+<div class="item">
 
 <select name="skladnik_id[]">
-<option value="">-- wybierz składnik --</option>
-
+<option value="">-- wybierz --</option>
 <?php
+$skladniki->data_seek(0);
 while($row = $skladniki->fetch_assoc()){
-    echo "<option value='".$row['ID_skladnik']."'>".$row['nazwa']."</option>";
+    echo "<option value='{$row['ID_skladnik']}'>{$row['nazwa']}</option>";
 }
 ?>
 </select>
 
+<input type="text" name="nowy_skladnik[]" placeholder="lub nowy składnik">
+
 <input type="number" step="0.01" name="ilosc[]" placeholder="ilość">
-<input type="text" name="jednostka[]" placeholder="np. g, ml, szt">
+
+<input type="text" name="jednostka[]" placeholder="jednostka">
 
 </div>
+
 </div>
 
 <br>
-
-<button type="button" id="dodajBtn">+ Dodaj składnik</button>
+<button type="button" onclick="dodaj()">+ składnik</button>
 <br><br>
 
-<button type="submit"> przepis</button>
+<button type="submit">Dodaj</button>
 
-
-</form>    
-
-<br>
-
-<a href="dodaj_skladnik.php">Dodaj nowy składnik</a>
+</form>
 
 <script>
+function dodaj(){
+    let box = document.getElementById("box");
+    let item = box.querySelector(".item");
+    let clone = item.cloneNode(true);
 
-document.getElementById("dodajBtn").addEventListener("click", function(){
+    clone.querySelectorAll("input").forEach(e => e.value="");
+    clone.querySelector("select").selectedIndex = 0;
 
-const kontener = document.getElementById("skladniki");
-
-const pierwszy = kontener.querySelector(".skladnik");
-
-const nowy = pierwszy.cloneNode(true);
-
-nowy.querySelectorAll("input").forEach(el => el.value="");
-nowy.querySelector("select").selectedIndex = 0;
-
-kontener.appendChild(nowy);
-
-});
+    box.appendChild(clone);
+}
 </script>
-
 
 </body>
 </html>
-
-<!---------------Dodawanie przepisu do bazy danych---------------->
-
-<?php
-
-if($_SERVER["REQUEST_METHOD"]== "POST"){
-
-    $nazwa = $_POST['nazwa'];
-    $opis = $_POST['opis'];
-
-    $zdjecie = null;
-
-    if(isset($_FILES['zdjecie']) && $_FILES['zdjecie']['error']==0){
-        $nazwaPliku = time()."_".$_FILES['zdjecie']['name'];
-
-        $sciezka = "uploads/".$nazwaPliku;
-
-        move_uploaded_file($_FILES['zdjecie']['tmp_name'],$sciezka);
-        
-        $zdjecie = $sciezka;
-        
-        }
-        
-        $stmt = $conn->prepare("
-        INSERT INTO dania_uzytkownikow (nazwa,opis,zdjecie)
-        VALUES (?,?,?)
-        ");
-        
-        $stmt->bind_param("sss",$nazwa,$opis,$zdjecie);
-        
-        $stmt->execute();
-        
-        $id_danie = $conn->insert_id;
-        
-        
-        
-        $skladniki = $_POST['skladnik_id'];
-        $ilosci = $_POST['ilosc'];
-        $jednostki = $_POST['jednostka'];
-        
-        
-        for($i=0;$i<count($skladniki);$i++){
-        
-        if(empty($skladniki[$i])) continue;
-        
-        $stmt = $conn->prepare("
-        INSERT INTO dania_skladnik_uzytkownikow
-        (id_danie_uzytk,id_skladnik,ilosc,jednostka)
-        VALUES (?,?,?,?)
-        ");
-        
-        $stmt->bind_param(
-        "iids",
-        $id_danie,
-        $skladniki[$i],
-        $ilosci[$i],
-        $jednostki[$i]
-        );
-        
-        $stmt->execute();
-        
-        }
-        
-        header("Location: dodaj_przepis.php?success=Przepis dodany");
-        
-        exit;
-        
-        }
-        
-
-
-?>
