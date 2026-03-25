@@ -28,6 +28,7 @@ header{
     height: 50px;
     cursor: pointer; 
     transition: transform 0.2s; 
+    gap: 20px;
  
 }
 .gwiazda:active{
