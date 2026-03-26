@@ -108,10 +108,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <textarea name="opis" required></textarea>
 <div class="zdjecie-con">
 <p>Zdjęcie:</p>
-<input id="zdjecie"type="file" name="zdjecie" required>
-<label for="zdjecie" class="zdjecie_wyslij">
-    Wybierz plik...
-  </label>
+<div id="zdjecie-con">
+    <label for="zdjecie" class="zdjecie_wyslij">Wybierz plik...</label>
+    <input id="zdjecie" type="file" name="zdjecie" accept="image/*" required style="display: none;">
+    
+    <div style="margin-top: 15px;">
+        <img id="podglad" src="#" alt="Podgląd zdjęcia" style="display: none; max-width: 200px;max-height 200px; border: 2px solid black; box-shadow: 3px 3px 3px grey;">
+    </div>
+</div>
 </div>
 <h3>Składniki</h3>
 
@@ -165,3 +169,15 @@ function dodaj(){
 
 </body>
 </html>
+<script>
+    const inputZdjecie = document.getElementById('zdjecie');
+    const imgPodglad = document.getElementById('podglad');
+
+    inputZdjecie.onchange = evt => {
+        const [file] = inputZdjecie.files;
+        if (file) {
+            imgPodglad.src = URL.createObjectURL(file);
+            imgPodglad.style.display = 'inline-block';
+        }
+    }
+</script>
