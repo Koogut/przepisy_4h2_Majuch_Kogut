@@ -88,24 +88,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
 <meta charset="UTF-8">
 <title>Dodaj przepis</title>
+<link rel="stylesheet" href="dodaj_przepis.css">
 </head>
 <body>
 
-<h2>Dodaj przepis</h2>
-
+<main>
+    <header>
+    <h1>Dodaj przepis</h1>
+</header>
+<section class="dodaj">
 <?php if(isset($_GET['ok'])) echo "<p>Dodano przepis</p>"; ?>
 
 <form method="post" enctype="multipart/form-data">
 
-Nazwa:<br>
-<input type="text" name="nazwa" required><br><br>
+<p>Nazwa:</p>
+<input id="nazwa" type="text" name="nazwa" required>
 
-Opis:<br>
-<textarea name="opis" required></textarea><br><br>
-
-Zdjęcie:<br>
-<input type="file" name="zdjecie" required><br><br>
-
+<p>Opis:</p>
+<textarea name="opis" required></textarea>
+<div class="zdjecie-con">
+<p>Zdjęcie:</p>
+<input id="zdjecie"type="file" name="zdjecie" required>
+<label for="zdjecie" class="zdjecie_wyslij">
+    Wybierz plik...
+  </label>
+</div>
 <h3>Składniki</h3>
 
 <div id="box">
@@ -133,13 +140,16 @@ while($row = $skladniki->fetch_assoc()){
 </div>
 
 <br>
-<button type="button" onclick="dodaj()">+ składnik</button>
-<br><br>
-
-<button type="submit">Dodaj</button>
+<button  id="skladnik"type="button" onclick="dodaj()">+ składnik</button>
+<br>
+<button id="doda" type="submit">Dodaj</button>
 
 </form>
-
+</section>
+<footer>
+  
+</footer>
+</main>
 <script>
 function dodaj(){
     let box = document.getElementById("box");

@@ -1,0 +1,157 @@
+
+body{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  
+    transition: 0.2s;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 100%;
+    background-image: url('widelec.jpg'), url('nuz.jpg');
+    background-position: left top, right top;
+    background-repeat: repeat-y, repeat-y;
+    background-size: 400px auto;
+    min-height: 100vh;
+    height: auto;
+    
+}
+main{
+   width: 100%;
+   flex:1;
+
+    
+}
+.dodaj{
+    min-height: 50vh;
+    height: auto;
+    margin: 0 auto;
+         border: 5px solid black;
+    box-sizing: border-box;
+    width: 100vh;
+    box-shadow: 5px 5px 10px lightslategray;
+}
+header{
+width: 100vh; height: 7vh; 
+display:flex;
+align-items: center; 
+justify-content: center; 
+margin: 0 auto;
+padding: 0  ;
+  border: 5px solid black;
+    box-sizing: border-box;
+}
+
+#przycisk_dol{
+    display: flex;
+    align-items: flex-start;
+  
+}
+#nazwa{
+    margin: 0;
+    font-size: 1.5vh;
+    cursor: pointer;
+    border: 2px solid black;
+    box-sizing: border-box;
+    width: 30vh;
+    height: 3vh;
+    box-shadow: 3px 3px 3px grey;
+}
+P{
+    font-size: 20px;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+textarea{
+    margin: 0;
+    font-size: 1.5vh;
+    cursor: pointer;
+    border: 2px solid black;
+    box-sizing: border-box;
+    transition: 0.1s;
+    max-height: 30vh;
+    max-width: 70vh;
+    min-width: 30vh;
+    min-height: 5vh;
+    box-shadow: 3px 3px 3px grey;
+
+}
+#zdjecie {
+    display: none;
+}
+
+.zdjecie_wyslij {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 2px solid black; 
+    font-size: 1.5vh;      
+    transition: 0.1s;
+    background-color: white;
+    box-shadow: 3px 3px 3px grey;
+
+}
+
+#zdjecie-con {
+    text-align: center;
+    margin-top: 5px;
+}
+.item input,select{
+    margin: 0;
+    font-size: 1.5vh;
+    cursor: pointer;
+    border: 2px solid black;
+    box-sizing: border-box;
+    width: 20vh;
+    height: 3vh;
+    font-weight: bold;
+    box-shadow: 3px 3px 10px grey;
+    margin-bottom: 10px;
+    text-align: center;
+
+}
+select[name="skladnik_id[]"]{
+    font-weight: bold;
+    border: 2px solid black;
+    font-size: 1.5vh;
+    background-color: white;
+    cursor: pointer;
+    text-align: center;
+}
+textarea,input,select:focus{
+    outline: none;
+}
+#skladnik{
+    margin-left: 8vh;
+    font-size: 1.5vh;
+    font-weight: bold;
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 10vh;
+    height: 3vh;
+    cursor: pointer;
+    border-radius: 30px;
+}
+#doda{
+    display: flex;
+    font-size: 1.5vh;
+    font-weight: bold;
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 10vh;
+    height: 3vh;
+    cursor: pointer;
+    border-radius: 30px;
+    align-items: center;
+    margin: 0 auto;
+}
+#doda:hover{
+ background-color:lightgray;
+}
+#skladnik:hover{
+ background-color:lightgray;
+}
