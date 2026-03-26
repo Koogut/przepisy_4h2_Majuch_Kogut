@@ -35,13 +35,14 @@ $result = $stmt->get_result();
 <head>
 <meta charset="UTF-8">
 <title>Ulubione dania</title>
-<link rel="stylesheet" href="startowa.css">
+<link rel="stylesheet" href="ulubione.css">
 </head>
 
 <body>
-
-<h1 style="text-align:center;">Twoje ulubione dania</h1>
-
+<header>
+<h1 >Twoje ulubione dania</h1>
+</header>
+<section>
 <div class="img_nasze_d">
 
 <?php while($row = $result->fetch_assoc()): ?>
@@ -59,7 +60,7 @@ if($row['typ'] == 'nasze'){
 }
 ?>
 
-<div style="text-align:center; margin:10px;">
+<div>
     <img 
         src="<?php echo $zdjecie ?: 'brak.jpg'; ?>" 
         alt="<?php echo $nazwa; ?>"
@@ -72,9 +73,9 @@ if($row['typ'] == 'nasze'){
 <?php endwhile; ?>
 
 </div>
-
+</section>
 <br>
-<div style="text-align:center;">
+<div class="przycisk">
     <button onclick="window.location.href='startowa.php'">Powrót</button>
 </div>
 

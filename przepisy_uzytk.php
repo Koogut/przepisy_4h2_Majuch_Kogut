@@ -83,15 +83,7 @@ if($user_id){
 
 <div class="gwiazda">
 
-    <?php if($prev): ?>
-        <span onclick="window.location.href='przepisy_uzytk.php?id=<?php echo $prev['ID_danie_uzykownikow']; ?>'">⬅</span>
-    <?php endif; ?>
 
-    <span onclick="window.location.href='startowa.php'">🏠</span>
-
-    <?php if($next): ?>
-        <span onclick="window.location.href='przepisy_uzytk.php?id=<?php echo $next['ID_danie_uzykownikow']; ?>'">➡</span>
-    <?php endif; ?>
 
     <?php if($user_id): ?>
         <img 
@@ -137,6 +129,19 @@ if($user_id){
 </div>
 
 </section>
+    <div class="przyciski">
+    <?php if($prev): ?>
+       
+        <button onclick="window.location.href='przepisy_uzytk.php?id=<?php echo $prev['ID_danie_uzykownikow']; ?>'">⬅</button>
+    <?php endif; ?>
 
+
+    <button onclick="window.location.href='startowa.php'">🏠</button>
+
+    <?php if($next): ?>
+       
+        <button onclick="window.location.href='przepisy_uzytk.php?id=<?php echo $next['ID_danie_uzykownikow']; ?>'">➡</button>
+    <?php endif; ?>
+    </div>
 </body>
 </html>

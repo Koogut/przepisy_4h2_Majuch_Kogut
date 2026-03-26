@@ -81,3 +81,23 @@ table{
     align-items: center;
     justify-content: center;
 }
+.przyciski{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+button{
+    padding:10px 15px;
+    margin:5px;
+    border-radius:10px;
+    border:none;
+    cursor:pointer;
+    background:#8eb9df;
+    color:white;
+}
+
+button:hover{
+    background:#88c9ff;
+}
