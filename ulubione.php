@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once "db.php";
+require_once "auth.php";
 
 if(!isset($_SESSION['user_id'])){
     die("Zaloguj się aby zobaczyć ulubione");
