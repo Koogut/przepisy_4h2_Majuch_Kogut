@@ -53,7 +53,7 @@ $result = $stmt->get_result();
 if($row['typ'] == 'nasze'){
     $nazwa = $row['nazwa_nasze'];
     $zdjecie = $row['zdjecie_nasze'];
-    $link = "przepis_nasze.php?id=".$row['ID_danie'];
+    $link = "nasze_przepisy.php?id=".$row['ID_danie'];
 } else {
     $nazwa = $row['nazwa_uzytk'];
     $zdjecie = $row['zdjecie_uzytk'];
