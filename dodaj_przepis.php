@@ -149,6 +149,7 @@ while($row = $skladniki->fetch_assoc()){
 <button id="doda" type="submit">Dodaj</button>
 
 </form>
+<button onclick="window.location.href='startowa.php'">🏠</button>
 </section>
 <footer>
   
