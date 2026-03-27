@@ -115,7 +115,7 @@ INSERT INTO `dania_skladnik_uzytkownikow` (`id_dania_skladnik_uzytk`, `id_danie_
 (8, 8, 120, 1.00, 'szt'),
 (9, 9, 110, 0.30, 'kg'),
 (10, 10, 102, 0.50, 'kg'),
-(11, 11, 107, 3.00, 'amper');
+
 
 -- --------------------------------------------------------
 
@@ -145,7 +145,7 @@ INSERT INTO `dania_uzytkownikow` (`ID_danie_uzykownikow`, `nazwa`, `opis`, `zdje
 (8, 'Hotdog', 'Parówki podgrzej w wodzie lub na grillu. Bułki do hot-dogów natnij i podpiecz. Włóż parówkę do bułki, dodaj prażoną cebulkę, musztardę i keczup.', 'zdjecia/hotdog.jpg'),
 (9, 'Tortilla', 'Placek tortilli posmaruj sosem. Nałóż podsmażone kawałki mięsa, kukurydzę, fasolę i sałatę. Zawiń dół, a potem boki, tworząc szczelny rulon.', 'zdjecia/tortilla.jpg'),
 (10, 'Frytki', 'Ziemniaki obierz i pokrój w słupki. Osusz je dokładnie i smaż w głębokim tłuszczu lub piecz w piekarniku z oliwą i solą, aż staną się chrupiące.', 'zdjecia/frytki.jpg'),
-(11, 'Epstein', 'Jeffrey Epstein był ██████████ finansistą i osobą o szerokich kontaktach wśród ██████████ elit politycznych, biznesowych i towarzyskich. Urodził się w ███████ i zbudował swoją fortunę w sposób, który do dziś pozostaje ██████████.\r\n\r\nZnany był z organizowania spotkań na swojej prywatnej wyspie ██████████, gdzie według śledczych dochodziło do ████████████████████████. W 2008 roku został skazany za ██████████, jednak wyrok i sposób jego odbywania wzbudziły █████████████ kontrowersje.\r\n\r\nW 2019 roku ponownie został aresztowany pod zarzutami █████████████████, co wywołało globalne zainteresowanie i falę spekulacji dotyczących jego powiązań z ███████████████. Zmarł w areszcie w ██████████ w okolicznościach oficjalnie uznanych za ██████████, choć wiele osób uważa je za █████████████.', 'zdjecia/1774593139_Einstein.jpg');
+
 
 -- --------------------------------------------------------
 
